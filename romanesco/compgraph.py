@@ -19,7 +19,7 @@ def define_computation_graph(vocab_size: int, batch_size: int):
         input_embeddings = tf.nn.embedding_lookup(embedding, inputs)
 
     with tf.name_scope('RNN'):
-        cells = [tf.nn.rnn_cell.BasicLSTMCell(C.HIDDEN_SIZE, state_is_tuple=True) for _ in range(10)]
+        cells = [tf.nn.rnn_cell.BasicLSTMCell(C.HIDDEN_SIZE, state_is_tuple=True) for _ in range(3)]
         cell = tf.nn.rnn_cell.MultiRNNCell(cells)
         # cell = tf.nn.rnn_cell.BasicLSTMCell(C.HIDDEN_SIZE, state_is_tuple=True)
         initial_state = cell.zero_state(batch_size, tf.float32)
